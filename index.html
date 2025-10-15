@@ -1,107 +1,67 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<title>Gallery Test</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <title>My Website</title>
+  <style>
+    .graybox {
+      background: #f0f0f0;
+      padding: 14px;
+      border-radius: 8px;
+      max-width: 1000px;
+      margin: 20px auto;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
 
-<style>
-  body { background:#f6f6f6; font-family: Arial, Helvetica, sans-serif; }
-  .graybox { max-width:1100px; margin:24px auto; padding:18px; background:#f0f0f0; border-radius:10px; box-shadow:0 8px 28px rgba(0,0,0,0.07); }
-  .my-nav .w3-bar { background:#3a3a3a; }
-  .navlink { color:#e6e6e6; font-weight:600; }
-  .banner { width:100%; max-height:420px; object-fit:cover; border-radius:8px; display:block; margin-top:12px; }
+    .my-nav {
+      border-radius: 6px;
+      overflow: hidden;
+    }
 
-  /* Grid */
-  .w3-row-padding { margin-top:18px; }
-  .w3-card-4 { border-radius:8px; overflow:hidden; }
+    .my-nav .w3-bar {
+      background: #3a3a3a;
+      color: #dcdcdc;
+    }
 
-  /* thumbnail image inside card: consistent crop */
-  .thumb-img {
-    width:100%;
-    height:220px;
-    object-fit:cover;    /* keeps aspect ratio and crops to fill box */
-    display:block;
-    transition: transform .35s ease, box-shadow .35s ease;
-  }
-  .card-hover:hover .thumb-img { transform:scale(1.05); box-shadow:0 12px 28px rgba(0,0,0,0.18); }
+    .my-nav .navlink {
+      color: #e6e6e6;
+      font-weight: 600;
+      padding: 14px 18px;
+      text-decoration: none;
+      border-right: 1px solid rgba(255,255,255,0.04);
+    }
 
-  .card-caption { padding:10px 12px; background:#fff; font-weight:600; color:#333; }
+    .my-nav .navlink:hover {
+      background: #5c5c5c;
+      color: #ffffff;
+    }
 
-  @media (max-width:640px) {
-    .thumb-img { height:150px; }
-  }
-
-  footer.site-footer { margin-top:20px; padding:14px; text-align:center; background:linear-gradient(#efefef,#e6e6e6); border-radius:6px; color:#333; }
-</style>
+    .banner {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 12px;
+      border-radius: 6px;
+      object-fit: cover;
+      max-height: 360px;
+    }
+  </style>
 </head>
-<body>
 
+<body class="w3-light-grey">
   <div class="graybox">
     <nav class="my-nav">
       <div class="w3-bar">
-        <a href="#" class="w3-bar-item navlink">Home</a>
+        <a href="#" class="w3-bar-item navlink active">Home</a>
         <a href="#" class="w3-bar-item navlink">About</a>
         <a href="#" class="w3-bar-item navlink">Portfolio</a>
         <a href="#" class="w3-bar-item navlink">Contact</a>
       </div>
     </nav>
 
-    <!-- Banner -->
-    <img src="TownfrontwithSnow1000.jpg" alt="Banner" class="banner">
-
-    <!-- Gallery (3 cols x 2 rows) - using the same image for all slots for testing -->
-    <div class="w3-row-padding">
-      <div class="w3-third w3-margin-bottom">
-        <div class="w3-card-4 card-hover">
-          <img class="thumb-img" src="TownfrontwithSnow1000.jpg" alt="Photo 1">
-          <div class="card-caption">Photo 1</div>
-        </div>
-      </div>
-
-      <div class="w3-third w3-margin-bottom">
-        <div class="w3-card-4 card-hover">
-          <img class="thumb-img" src="TownfrontwithSnow1000.jpg" alt="Photo 2">
-          <div class="card-caption">Photo 2</div>
-        </div>
-      </div>
-
-      <div class="w3-third w3-margin-bottom">
-        <div class="w3-card-4 card-hover">
-          <img class="thumb-img" src="TownfrontwithSnow1000.jpg" alt="Photo 3">
-          <div class="card-caption">Photo 3</div>
-        </div>
-      </div>
-
-      <!-- Row 2 -->
-      <div class="w3-third w3-margin-bottom">
-        <div class="w3-card-4 card-hover">
-          <img class="thumb-img" src="TownfrontwithSnow1000.jpg" alt="Photo 4">
-          <div class="card-caption">Photo 4</div>
-        </div>
-      </div>
-
-      <div class="w3-third w3-margin-bottom">
-        <div class="w3-card-4 card-hover">
-          <img class="thumb-img" src="TownfrontwithSnow1000.jpg" alt="Photo 5">
-          <div class="card-caption">Photo 5</div>
-        </div>
-      </div>
-
-      <div class="w3-third w3-margin-bottom">
-        <div class="w3-card-4 card-hover">
-          <img class="thumb-img" src="TownfrontwithSnow1000.jpg" alt="Photo 6">
-          <div class="card-caption">Photo 6</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-      © Bracken Biesinger — Photo Gallery • Built with W3.CSS
-    </footer>
+    <img src="TownfrontwithSnow1000.jpg" alt="Snowy Town Banner" class="banner w3-image">
   </div>
-
 </body>
 </html>
