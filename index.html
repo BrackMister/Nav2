@@ -4,64 +4,157 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <title>My Website</title>
+  <title>Gallery Page — Fixed Thumbnails</title>
+
   <style>
+    /* Gray container */
     .graybox {
       background: #f0f0f0;
-      padding: 14px;
-      border-radius: 8px;
-      max-width: 1000px;
-      margin: 20px auto;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      padding: 18px;
+      border-radius: 10px;
+      max-width: 1100px;
+      margin: 22px auto;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.07);
     }
 
-    .my-nav {
-      border-radius: 6px;
-      overflow: hidden;
-    }
+    /* Navbar */
+    .my-nav { border-radius: 8px; overflow: hidden; }
+    .my-nav .w3-bar { background: #3a3a3a; color: #dcdcdc; }
+    .navlink { color:#e6e6e6; font-weight:600; padding:12px 16px; text-decoration:none; border-right:1px solid rgba(255,255,255,0.04); }
+    .navlink:hover{ background:#5c5c5c; color:#fff; }
+    .navlink.active{ background:#232323; color:#fff; }
 
-    .my-nav .w3-bar {
-      background: #3a3a3a;
-      color: #dcdcdc;
-    }
+    /* Big banner */
+    .banner { display:block; width:100%; height:auto; margin-top:14px; border-radius:8px; object-fit:cover; max-height:420px; }
 
-    .my-nav .navlink {
-      color: #e6e6e6;
-      font-weight: 600;
-      padding: 14px 18px;
-      text-decoration: none;
-      border-right: 1px solid rgba(255,255,255,0.04);
-    }
+    /* Gallery grid */
+    .gallery-row { margin-top:18px; }
+    .w3-card-4 { overflow:hidden; border-radius:8px; }
 
-    .my-nav .navlink:hover {
-      background: #5c5c5c;
-      color: #ffffff;
-    }
-
-    .banner {
-      display: block;
+    /* --- Uniform thumbnail box using background-image (reliable cropping) --- */
+    .thumb-box {
       width: 100%;
-      height: auto;
-      margin-top: 12px;
-      border-radius: 6px;
-      object-fit: cover;
-      max-height: 360px;
+      height: 220px;               /* consistent thumbnail height */
+      background-size: cover;      /* crop to fill */
+      background-position: center; /* center crop */
+      background-repeat: no-repeat;
+      display: block;
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+
+    /* Hover zoom + shadow (applies to the card containing the thumb-box) */
+    .card-hover:hover .thumb-box {
+      transform: scale(1.06);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+    }
+
+    /* card caption */
+    .card-caption { padding:10px 12px; font-weight:600; color:#333; background:#fff; }
+
+    /* Footer */
+    footer.site-footer {
+      margin-top:22px;
+      padding:18px;
+      border-radius:8px;
+      background:linear-gradient(180deg,#efefef,#e6e6e6);
+      text-align:center;
+      color:#333;
+      font-size:0.95rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+
+    /* Responsive: reduce thumbnail height on small screens */
+    @media (max-width: 640px){
+      .thumb-box { height: 160px; }
+    }
+
+    /* Optional: slightly taller thumbnails on wide screens */
+    @media (min-width: 1400px){
+      .thumb-box { height: 260px; }
     }
   </style>
 </head>
 
 <body class="w3-light-grey">
+
   <div class="graybox">
+
+    <!-- NAV BAR -->
     <nav class="my-nav">
       <div class="w3-bar">
-        <a href="#" class="w3-bar-item navlink active">Home</a>
-        <a href="#" class="w3-bar-item navlink">About</a>
-        <a href="#" class="w3-bar-item navlink">Portfolio</a>
-        <a href="#" class="w3-bar-item navlink">Contact</a>
+        <a href="index.html" class="w3-bar-item navlink active">Home</a>
+        <a href="about.html" class="w3-bar-item navlink">About</a>
+        <a href="portfolio.html" class="w3-bar-item navlink">Portfolio</a>
+        <a href="contact.html" class="w3-bar-item navlink">Contact</a>
+        <div class="w3-right w3-hide-small">
+          <a href="https://example.com" class="w3-bar-item navlink" target="_blank" rel="noopener">External</a>
+        </div>
       </div>
     </nav>
 
-    <img src="TownfrontwithSnow1000.jpg" alt="Snowy Town Banner" class="banner w3-image">
-  </div>
+    <!-- MAIN BANNER -->
+    <img src="TownfrontwithSnow1000.jpg" alt="Snowy Town Banner" class="banner w3-image w3-animate-opacity">
+
+    <!-- GALLERY (3 columns x 2 rows = 6 images) -->
+    <div class="gallery-row">
+      <div class="w3-row-padding">
+
+        <!-- NOTE: change the URLs in the inline style background-image to your actual filenames -->
+        <div class="w3-third w3-margin-bottom">
+          <div class="w3-card-4 card-hover w3-animate-bottom">
+            <div class="thumb-box" style="background-image: url('TownfrontwithSnow1000.jpg');" role="img" aria-label="Snow Town — Front Street"></div>
+            <div class="card-caption">Snow Town — Front Street</div>
+          </div>
+        </div>
+
+        <div class="w3-third w3-margin-bottom">
+          <div class="w3-card-4 card-hover w3-animate-bottom">
+            <div class="thumb-box" style="background-image: url('cozy-winter-window-stockcake.jpg');" role="img" aria-label="Cozy Window"></div>
+            <div class="card-caption">Cozy Window</div>
+          </div>
+        </div>
+
+        <div class="w3-third w3-margin-bottom">
+          <div class="w3-card-4 card-hover w3-animate-bottom">
+            <div class="thumb-box" style="background-image: url('snowy-alleyway-evening-stockcake.jpg');" role="img" aria-label="Alleyway Lights"></div>
+            <div class="card-caption">Alleyway Lights</div>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="w3-third w3-margin-bottom">
+          <div class="w3-card-4 card-hover w3-animate-bottom">
+            <div class="thumb-box" style="background-image: url('istockphoto-497859024-612x612.jpg');" role="img" aria-label="Frosted Windowpanes"></div>
+            <div class="card-caption">Frosted Windowpanes</div>
+          </div>
+        </div>
+
+        <div class="w3-third w3-margin-bottom">
+          <div class="w3-card-4 card-hover w3-animate-bottom">
+            <div class="thumb-box" style="background-image: url('tumblr_1bdcb2e621cacb3bee6318fd73cf1baf_aff6bd69_1280.jpg');" role="img" aria-label="Snowy Rooflines"></div>
+            <div class="card-caption">Snowy Rooflines</div>
+          </div>
+        </div>
+
+        <div class="w3-third w3-margin-bottom">
+          <div class="w3-card-4 card-hover w3-animate-bottom">
+            <div class="thumb-box" style="background-image: url('eveglo_03c2a315-15fb-4d4f-af19-d37dfa3f9da2.jpg');" role="img" aria-label="Evening Glow"></div>
+            <div class="card-caption">Evening Glow</div>
+          </div>
+        </div>
+
+      </div> <!-- /.w3-row-padding -->
+    </div> <!-- /.gallery-row -->
+
+    <!-- FOOTER -->
+    <footer class="site-footer w3-margin-top">
+      <div class="w3-container">
+        <p style="margin:6px 0 8px 0;">© <strong>Bracken Biesinger</strong> — Photo Gallery &nbsp;•&nbsp; <a href="#" class="w3-text-dark-gray">Accessibility</a> &nbsp;•&nbsp; <a href="#" class="w3-text-dark-gray">Contact</a></p>
+        <small style="color:#666;">Built with W3.CSS • Animations: w3-animate-bottom / w3-animate-opacity</small>
+      </div>
+    </footer>
+
+  </div> <!-- /.graybox -->
+
 </body>
 </html>
